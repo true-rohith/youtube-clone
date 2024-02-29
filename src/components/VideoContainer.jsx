@@ -23,7 +23,7 @@ function VideoContainer() {
   const fetchVideoByCategory = async () => {
     try {
       const res = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${category}&type=video&key=${API_KEY}`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${category}&type=video&key=${API_KEY}`
       );
       dispatch(setHomeVideo(res?.data?.items));
     } catch (error) {
@@ -39,7 +39,7 @@ function VideoContainer() {
   }, [category]);
 
   return (
-    <div className="grid grid-cols-3 gap-3">
+    <div className="grid grid-cols-3 gap-3 sm:grid-cols-1 md:grid-cols-2 ">
       {video.map((item) => {
         return (
           <Link

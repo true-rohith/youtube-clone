@@ -122,8 +122,8 @@ const Sidebar = () => {
   return (
     <div
       className={` p-4 left-0 mr-5 w-[20%] overflow-y-scroll overflow-x-hidden h-[calc(100vh-5rem)] ${
-        !open && "w-auto"
-      } `}
+        !open && "hidden"
+      } sm:top-16 sm:fixed sm:bg-white sm:w-[55%]`}
     >
       {/* <div
         className={`absolute overflow-y-scroll overflow-x-hidden w-[100%] h-[calc(100vh-5rem)] ${
@@ -132,9 +132,9 @@ const Sidebar = () => {
       > */}
       {sidebarItems.map((item, index) => {
         return (
-          <div key={index} className="flex my-3 ">
+          <div key={index} className={`flex my-3`}>
             {item.icon}
-            <p className={`ml-5 ${!open && "hidden"}`}>{item.title}</p>
+            <p className={`ml-5 `}>{item.title}</p>
           </div>
         );
       })}
