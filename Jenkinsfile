@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/true-rohith/youtube-clone'
+                git 'https://github.com/true-rohith/youtube-clone.git'
             }
         }
 
