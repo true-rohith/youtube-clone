@@ -3,28 +3,29 @@ pipeline {
 
     stages {
 
-        stage('Clone Repo') {
+        stage('Clone Repository') {
             steps {
-                git 'https://github.com/true-rohith/youtube-clone.git'
+                git branch: 'main', url: 'https://github.com/true-rohith/youtube-clone.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
-        stage('Build') {
+        stage('Build Project') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
 
-        stage('Start Server') {
+        stage('Start Application') {
             steps {
-                sh 'pm2 restart app || pm2 start app.js'
+                bat 'npm start'
             }
         }
+
     }
 }
